@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<h1 class="add-title">إضافة منشور جديد</h1>
+
+<form method="post" class="add-form">
+    {% csrf_token %}
+
+    <label class="add-label">العنوان:</label>
+    <input type="text" name="title" class="add-input" required>
+
+    <label class="add-label">المحتوى:</label>
+    <textarea name="content" rows="5" class="add-textarea" required></textarea>
+
+    <button type="submit" class="add-button">نشر المنشور</button>
+</form>
+
+{% endblock %}
