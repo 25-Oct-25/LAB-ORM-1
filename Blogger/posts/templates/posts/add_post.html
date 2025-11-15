@@ -1,0 +1,25 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}Add Post | Blogger{% endblock %}
+
+{% block content %}
+<h2>Add a New Post</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Title:</label><br>
+    <input type="text" name="title" placeholder="Enter title" required><br><br>
+
+    <label>Content:</label><br>
+    <textarea name="content" rows="5" placeholder="Write your post here..." required></textarea><br><br>
+
+    <label>Publish Now?</label>
+    <input type="checkbox" name="is_published" checked><br><br>
+
+    <label>Publish Date:</label><br>
+    <input type="datetime-local" name="published_at"><br><br>
+
+    <button type="submit">Add Post</button>
+</form>
+
+{% endblock %}
