@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Blogger</title>
+    <style>
+        body {
+            font-size: {% if font_size == 'small' %}12px{% elif font_size == 'large' %}20px{% else %}16px{% endif %};
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Blogger</h1>
+    <p>Content displayed with font size: {{ font_size }}</p>
+</body>
+</html>
