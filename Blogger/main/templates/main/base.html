@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Jersey+25&family=Phudu:wght@300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sniglet:wght@400;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="header-wrapper">
+        <a href="/" class="logo">MY BLOG</a>
+
+        <ul>
+            <li><a href="{% url 'main:home_view' %}">Home</a></li>
+            <li><a href="{% url 'main:create_post_view' %}">Create Post</a></li>
+        </ul>
+    </div>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>

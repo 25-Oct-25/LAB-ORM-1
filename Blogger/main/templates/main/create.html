@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-5">
+        <form action="{% url 'main:create_post_view' %}" method="post">
+
+            {% csrf_token %}
+            <input type="text" placeholder="Title" name="title" />
+
+            <textarea placeholder="Content" name="content"></textarea>
+
+            <label>
+                <input type="checkbox" name="is_published" checked>
+                Published
+            </label>
+
+            <input type="datetime-local" name="published_at">
+
+            <input type="submit" value="Create Post">
+
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
