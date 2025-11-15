@@ -1,0 +1,33 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block title %} Add post{% endblock %}
+
+
+{% block content %}
+<h1>Add New Post</h1>
+
+<div class="row">
+    <div class="col-6">
+        <form action="{% url 'post:add_post_view'%}" class="d-flex flex-column gap-2" method="post">
+            {%csrf_token %}
+            <input type="text" placeholder="Title" name="title" class="form-control" />
+            <textarea name="content" placeholder="write the content of your post here" class="form-control"></textarea>
+            <label for="is_published">Do you want to publish it?</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="is_published" id="radioYes" value="True" checked>
+                <label class="form-check-label" for="radioYes">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="is_published" id="radioNo" value="False">
+                <label class="form-check-label" for="radioNo">
+                    No
+                </label>
+            </div>
+            <input type="submit" value="Add Post" class="btn btn-primary "/>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
