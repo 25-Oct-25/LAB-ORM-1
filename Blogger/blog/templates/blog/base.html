@@ -1,0 +1,27 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blogger</title>
+   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Blogger</div>
+
+        <nav class="nav-links">
+            <a href="{% url 'blog:home' %}">Home</a>
+            <a href="{% url 'blog:add_post' %}">Add Post</a>
+            <a href="{% url 'blog:manage_posts' %}">Manage Posts</a>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
