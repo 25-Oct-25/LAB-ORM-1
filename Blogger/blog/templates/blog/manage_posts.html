@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<h2 class="section-title">Manage Posts</h2>
+
+<div class="table-wrapper">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Published</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ post.title }}</td>
+                <td>{% if post.is_published %} Yes {% else %} No {% endif %}</td>
+                <td>
+                    <a class="edit-btn" href="{% url 'blog:edit_post' post.id %}">Edit</a>
+                    <a class="delete-btn" href="{% url 'blog:delete_post' post.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

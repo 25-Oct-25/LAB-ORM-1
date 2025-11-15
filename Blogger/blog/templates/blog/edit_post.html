@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="form-wrapper">
+    <h2 class="form-title">Edit Post</h2>
+
+    <form method="POST" class="add-form">
+        {% csrf_token %}
+
+        <label>Title</label>
+        <input type="text" name="title" value="{{ post.title }}" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="6" required>{{ post.content }}</textarea>
+
+        <label>Published</label>
+        <div class="checkbox-row">
+            <input type="checkbox" name="is_published" {% if post.is_published %}checked{% endif %}>
+        </div>
+
+
+        <button type="submit" class="submit-btn">Update</button>
+    </form>
+</div>
+
+{% endblock %}
