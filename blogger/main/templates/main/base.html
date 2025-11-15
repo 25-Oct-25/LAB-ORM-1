@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Blogger{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">Blogger</span>
+      </div>
+
+      <nav class="navbar">
+        <a href="{% url 'main:home' %}" class="nav-link">Home</a>
+        <a href="{% url 'main:add_post' %}" class="nav-link nav-cta">New Post</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>Blogger &hearts;</p>
+  </footer>
+
+</body>
+</html>

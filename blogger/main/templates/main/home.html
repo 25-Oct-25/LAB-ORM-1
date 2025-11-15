@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home - Blogger{% endblock %}
+
+{% block content %}
+  <section class="page-header">
+    <div>
+      <h1 class="page-title">Latest Posts</h1>
+      <p class="page-subtitle">Read the most recent articles from your simple blog.</p>
+    </div>
+    <a href="{% url 'main:add_post' %}" class="btn btn-primary">+ Create New Post</a>
+  </section>
+
+  {% if posts %}
+    <section class="posts-grid">
+      {% for post in posts %}
+        <article class="post-card">
+          <div class="post-meta">
+            <span class="post-date">
+              {{ post.published|date:"M d, Y - H:i" }}
+            </span>
+            {% if not post.is_published %}
+              <span class="post-badge post-badge-draft">Draft</span>
+            {% endif %}
+          </div>
+
+          <h2 class="post-title">{{ post.title }}</h2>
+          <p class="post-content">
+            {{ post.content|truncatechars:220 }}
+          </p>
+        </article>
+      {% endfor %}
+    </section>
+  {% else %}
+    <div class="empty-state">
+      <h2>No posts yet</h2>
+      <p>Start by creating your first blog post.</p>
+      <a href="{% url 'main:add_post' %}" class="btn btn-primary">Write a post</a>
+    </div>
+  {% endif %}
+{% endblock %}
