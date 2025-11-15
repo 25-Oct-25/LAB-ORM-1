@@ -1,28 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 from django.utils.translation import gettext_lazy as _
-from .models import Post
+from posts.models import Post
 # Create your views here.
 
 def home_view(request: HttpRequest):
   latest_post = Post.objects.last()
   return render(request, "main/index.html", {"latest_post":latest_post})
-
-def add_post_view(request:HttpRequest):
-  return render(request, "main/add-post.html")
-
-def create_post(request:HttpRequest):
-
-  title = request.POST.get("title")
-  content = request.POST.get("content")
-
-  post = Post.objects.create(title=title,content=content) 
-
-  messages.success(request, _("Post Created Successfully"))
-
-  return redirect(request.META.get("HTTP_REFERER", "/"))
-
 
 
 def set_theme(request:HttpRequest, mode):

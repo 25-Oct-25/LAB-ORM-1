@@ -80,7 +80,7 @@
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-6 rtl:space-x-reverse text-white font-semibold">
         <a href="{% url 'main:home_view' %}" class="hover:text-brgandy dark:hover:text-lightred transition-colors duration-300"> {% trans "Home" %} </a>
-        <a href="{% url 'main:add_post_view' %}" class="hover:text-brgandy dark:hover:text-lightred transition-colors duration-300">{% trans "Add Post"%}</a>
+        <a href="{% url 'posts:add_post_view' %}" class="hover:text-brgandy dark:hover:text-lightred transition-colors duration-300">{% trans "Add Post"%}</a>
       </nav>
 
       <!-- Right Controls -->
@@ -108,7 +108,7 @@
     <!-- Mobile Menu (Hidden by default) -->
   <nav id="mobile-menu" class="hidden flex-row flex justify-center space-x-5 p-4 bg-gradient-to-b from-brgandy/70 via-brgandy/50 to-brgandy/0 backdrop-blur-md shadow-md md:hidden">
     <a href="{% url 'main:home_view' %}" class="text-white hover:text-brgandy dark:hover:text-lightred transition-colors duration-300">{% trans "Home" %}</a>
-    <a href="{% url 'main:add_post_view' %}" class="text-white hover:text-brgandy dark:hover:text-lightred transition-colors duration-300">{% trans "Add Post" %}</a>
+    <a href="{% url 'posts:add_post_view' %}" class="text-white hover:text-brgandy dark:hover:text-lightred transition-colors duration-300">{% trans "Add Post" %}</a>
   </nav>
 
   </header>
